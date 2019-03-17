@@ -1,0 +1,55 @@
+form {
+  text-align: -webkit-center;
+  font-size: 14px;
+  min-height: 300px;
+
+}
+.mat-form-field {
+ min-width: 300px;
+width:100%;
+max-width: 450px;
+}
+.mat-form-field {
+  font-size: large;}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.video-fluid {
+  width: 100%;
+  height: auto;
+}
+
+.mat-stepper-horizontal, .mat-stepper-vertical {
+  background-color: rgba(168, 175, 197, .7);
+}
+
+
+.mat-button, .mat-icon-button, .mat-stroked-button {
+  background: #65b4b6;
+  font-size: 20px;
+  margin: 5px;
+  color: #ebebeb;
+  min-height: 53px;
+  min-width: 135px;
+  border-radius: 18px;
+}
+
+
+.card {
+  float: left;
+}
+.example-card {
+  max-width: 200px;
+  margin: 4px;
+  padding: 7px;
+  float: left;
+}
+img.card-img-top {
+  width: 100%;
+}

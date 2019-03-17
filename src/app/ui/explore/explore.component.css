@@ -1,0 +1,14 @@
+img.card-img-top {
+  width: 300px;
+}
+
+.mat-card {
+float:left;
+}
+
+
+input.ng-untouched.ng-pristine.ng-valid {
+  width: 350px;
+  height: 45px;
+  margin: 5px;
+}

@@ -1,0 +1,114 @@
+<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button> -->
+
+
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+
+
+
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>
+        <mat-icon>email</mat-icon>
+      </ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="firstCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next <mat-icon>arrow_right_alt</mat-icon></button>
+      </div>
+    </form>
+  </mat-step>
+
+
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>
+        <!-- <i class="material-icons">
+              email
+              </i> -->
+        <mat-icon>add_location</mat-icon>
+      </ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Location" formControlName="secondCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next <mat-icon>arrow_right_alt</mat-icon></button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>
+        <mat-icon>attach_money</mat-icon>
+      </ng-template>
+      <mat-form-field>
+        <!-- <mat-slider  placeholder="Budget (in Lakhs)" formControlName="thirdCtrl"></mat-slider> -->
+        <input matInput type="number" placeholder="Budget (in Lakhs)" formControlName="thirdCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next <mat-icon>arrow_right_alt</mat-icon></button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="fourFormGroup">
+    <form [formGroup]="fourFormGroup">
+      <ng-template matStepLabel>
+        <mat-icon>dashboard</mat-icon>
+      </ng-template>
+      <mat-form-field>
+          <mat-select placeholder="Select " formControlName="fourCtrl" multiple>
+            <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      <!-- <mat-form-field>
+        <input matInput type="number" placeholder="Budget" formControlName="fourCtrl" required>
+      </mat-form-field> -->
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext (click)='mychoice()'>Next <mat-icon>arrow_right_alt</mat-icon></button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="fiveFormGroup">
+    <form [formGroup]="fiveFormGroup">
+      <ng-template matStepLabel>
+        <mat-icon>thumb_up</mat-icon>
+      </ng-template>
+      <mat-card formArrayName="fiveCtrl" class="example-card" *ngFor="let post of fiveFormGroup.controls['fiveCtrl'].controls; let i= index">
+
+
+        <mat-checkbox class='imgtop' id='{{i}}' [formControlName]='i'></mat-checkbox>
+        <div class="example-header-image">
+            <!-- {{data.posts[i].thumbnail}} -->
+            <label for="{{i}}">
+          <img class="card-img-top" src="{{data.posts[i].thumbnail}}" alt="Card image cap">
+        </label>
+        </div>
+      </mat-card>
+
+
+      <div class="row">
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext (click)='submit()'>Next <mat-icon>arrow_right_alt</mat-icon></button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel> <mat-icon>done</mat-icon></ng-template>
+   your Likes and work matching matrix is  in progress.you can book an appointmnet with our designers directly.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-button (click)="gotoDesign()">Slect Design <mat-icon>arrow_right_alt</mat-icon></button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
